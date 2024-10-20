@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Comment=A dune 2 Remake using the reverse engineered code
+Exec=dunedynasty
+Icon=com.gameflorist.dunedynasty
+Name=Dune Dynasty
+Categories=Game;
+Terminal=false

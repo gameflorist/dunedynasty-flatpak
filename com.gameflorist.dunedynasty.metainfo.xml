@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.gameflorist.dunedynasty</id>
+  <launchable type="desktop-id">com.gameflorist.dunedynasty.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Dune Dynasty</name>
+  <summary>A dune 2 Remake using the reverse engineered code</summary>
+  <description>
+    <p>
+     _Dune Dynasty_ is an enhancement of the classic real-time strategy game
+    _Dune II_ by Westwood Studios. It's goal is to make _Dune II_ playable on modern systems with additional features, bugfixes and QoL-improvements. It is not a remake. It builds upon the
+    original game engine as reverse-engineered by the OpenDUNE project.
+    </p>
+  </description>
+  <categories>
+    <category>Games</category>
+  </categories>
+  <url type="homepage">https://github.com/gameflorist/dunedynasty</url>
+  <releases>
+    <release type="development" version="VERSION" date="DATE" />
+  </releases>
+</component>
