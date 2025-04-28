@@ -64,11 +64,11 @@ modules:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
     post-install:
-      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/campaign
-      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/data
-      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/gfx
-      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/music
-
+      - mkdir -p $FLATPAK_DEST/data/dunedynasty
+      - cp -rf ./dist/campaign $FLATPAK_DEST/data/dunedynasty
+      - cp -rf ./dist/data $FLATPAK_DEST/data/dunedynasty
+      - cp -rf ./dist/gfx $FLATPAK_DEST/data/dunedynasty
+      - cp -rf ./dist/music $FLATPAK_DEST/data/dunedynasty
 
   - name: dunedynasty-launcher
     buildsystem: simple
