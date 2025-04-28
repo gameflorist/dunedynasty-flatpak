@@ -2,7 +2,7 @@ app-id: io.github.gameflorist.dunedynasty
 runtime: org.freedesktop.Platform
 runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
-command: dunedynasty
+command: dunedynasty-launcher
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -63,3 +63,18 @@ modules:
     sources:
     - type: git
       url: https://github.com/gameflorist/dunedynasty.git
+
+  - name: dunedynasty-launcher
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 dunedynasty-launcher.sh /app/bin/dunedynasty-launcher
+    sources:
+      - type: script
+        dest-filename: dunedynasty-launcher.sh
+        commands:
+          - mkdir -p "~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty"
+          - /bin/cp -rf /app/data/dunedynasty/campaign ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/campaign
+          - /bin/cp -rf /app/data/dunedynasty/data ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/data
+          - /bin/cp -rf /app/data/dunedynasty/gfx ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/gfx
+          - /bin/cp -rf /app/data/dunedynasty/music ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/music
+          - /app/bin/dunedynasty
