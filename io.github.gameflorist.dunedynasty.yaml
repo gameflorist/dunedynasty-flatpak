@@ -39,16 +39,16 @@ modules:
     buildsystem: cmake
     builddir: true
     sources:
-    - type: archive
-      sha256: 2ef9f77f0b19459ea2c7645cc4762fc35c74d3d297bfc38d8592307757166f05
-      url: https://github.com/liballeg/allegro5/releases/download/5.2.10.1/allegro-5.2.10.1.tar.gz
+      - type: archive
+        sha256: 2ef9f77f0b19459ea2c7645cc4762fc35c74d3d297bfc38d8592307757166f05
+        url: https://github.com/liballeg/allegro5/releases/download/5.2.10.1/allegro-5.2.10.1.tar.gz
 
   - name: enet
     buildsystem: autotools
     sources:
-    - type: archive
-      sha256: 2a8a0c5360d68bb4fcd11f2e4c47c69976e8d2c85b109dd7d60b1181a4f85d36
-      url: http://enet.bespin.org/download/enet-1.3.18.tar.gz
+      - type: archive
+        sha256: 2a8a0c5360d68bb4fcd11f2e4c47c69976e8d2c85b109dd7d60b1181a4f85d36
+        url: http://enet.bespin.org/download/enet-1.3.18.tar.gz
       
   - shared-modules/linux-audio/fluidsynth2.json
 
@@ -61,10 +61,10 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DDUNE_DATA_DIR=~/.local/share/dunedynasty/data
     sources:
-    - type: directory
-      path: ~/.local/share/dunedynasty/data
-    - type: git
-      url: https://github.com/gameflorist/dunedynasty.git
+      - type: dir
+        path: ~/.local/share/dunedynasty/data
+      - type: git
+        url: https://github.com/gameflorist/dunedynasty.git
     post-install:
       - install -D -m 644 -t $FLATPAK_DEST/share/ ~/.local/share/dunedynasty/data
 
