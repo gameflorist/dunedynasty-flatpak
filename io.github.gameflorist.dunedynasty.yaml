@@ -62,7 +62,7 @@ modules:
       - -DDUNE_DATA_DIR=~/.local/share/dunedynasty/data
     sources:
       - type: dir
-        path: ~/.local/share/dunedynasty/data
+        path: ~/.local/share
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
     post-install:
