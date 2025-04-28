@@ -9,7 +9,6 @@ finish-args:
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
-  - --filesystem=~/.config/dunedynasty/:create
 cleanup:
 - "/include"
 - "/lib/pkgconfig"
@@ -33,7 +32,6 @@ modules:
       path: io.github.gameflorist.dunedynasty.desktop
   post-install:
     - install -D -m 644 -t $FLATPAK_DEST/share/icons/hicolor/512x512/apps/ io.github.gameflorist.dunedynasty.png
-    # - install -D -m 644 -t $FLATPAK_DEST/share/icons/hicolor/scalable/apps/ io.github.gameflorist.dunedynasty.svg
     - install -D -m 644 -t $FLATPAK_DEST/share/metainfo/ io.github.gameflorist.dunedynasty.metainfo.xml
     - desktop-file-install -m 644 --dir=$FLATPAK_DEST/share/applications/ io.github.gameflorist.dunedynasty.desktop
 - name: allegro5
