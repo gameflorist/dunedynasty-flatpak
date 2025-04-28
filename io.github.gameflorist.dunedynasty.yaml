@@ -59,12 +59,14 @@ modules:
     buildsystem: cmake
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DDUNE_DATA_DIR=~/.var/app/io.github.gameflorist.dunedynasty/data/dunedynasty
+      - -DDUNE_DATA_DIR=~/.local/share/dunedynasty/data
     sources:
-    - type: git
-      url: https://github.com/gameflorist/dunedynasty.git
+      - type: directory
+        path: ~/.local/share/dunedynasty/data
+      - type: git
+        url: https://github.com/gameflorist/dunedynasty.git
     post-install:
-      - install -D -m 644 -t $FLATPAK_DEST/share/ ~/.var/app/io.github.gameflorist.dunedynasty/data/dunedynasty
+      - install -D -m 644 -t $FLATPAK_DEST/share/ ~/.local/share/dunedynasty/data
 
   - name: dunedynasty-launcher
     buildsystem: simple
