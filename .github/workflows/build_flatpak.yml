@@ -7,7 +7,7 @@ on:
         description: 'Version'
         required: true
         type: string
-        default: "development"
+        default: "v0.0.0"
 
 jobs:
   flatpak:
