@@ -56,7 +56,7 @@ modules:
 
   - name: dunedynasty
     builddir: true
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DDUNE_DATA_DIR=~/.var/app/io.github.gameflorist.dunedynasty/data
