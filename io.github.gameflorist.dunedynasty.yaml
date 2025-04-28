@@ -3,6 +3,9 @@ runtime: org.freedesktop.Platform
 runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: dunedynasty-launcher
+build-options:
+  env:
+    DUNE_DATA_DIR: ~/.local/share/dunedynasty/data
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -59,11 +62,16 @@ modules:
     buildsystem: cmake
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DDUNE_DATA_DIR=~/.local/share/dunedynasty/data
+      - -DDUNE_DATA_DIR=$XDG_DATA_HOME/dunedynasty
     sources:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
     post-install:
+      - ls -la ~/.local/share
+      - ls -la $XDG_DATA_HOME
+      - ls -la ${XDG_DATA_HOME}
+      - ls -la $DUNE_DATA_DIR
+      - ls -la ${DUNE_DATA_DIR}
       - mkdir -p $FLATPAK_DEST/data/dunedynasty
       - cp -rf ./dist/campaign $FLATPAK_DEST/data/dunedynasty
       - cp -rf ./dist/data $FLATPAK_DEST/data/dunedynasty
