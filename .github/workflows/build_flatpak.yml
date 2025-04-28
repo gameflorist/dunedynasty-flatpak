@@ -42,6 +42,7 @@ jobs:
           bundle: DuneDynasty.${{ inputs.version }}.flatpak
           manifest-path: io.github.gameflorist.dunedynasty.yaml
           cache-key: flatpak-builder-${{ inputs.version }}
+          upload-artifact: false
 
       - name: Delete Old Artifacts
         uses: actions/github-script@v7
