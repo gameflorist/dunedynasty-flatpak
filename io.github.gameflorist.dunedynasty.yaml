@@ -64,8 +64,11 @@ modules:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
     post-install:
-      - ls -la ./dist
-      - install -D -m 644 -t $FLATPAK_DEST/share/ ${XDG_DATA_HOME}/dunedynasty/data
+      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/campaign
+      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/data
+      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/gfx
+      - install -D -m 644 -t $FLATPAK_DEST/data/dunedynasty ./dist/music
+
 
   - name: dunedynasty-launcher
     buildsystem: simple
@@ -75,5 +78,5 @@ modules:
       - type: script
         dest-filename: dunedynasty-launcher.sh
         commands:
-          - /bin/cp -rf /app/share/dunedynasty $XDG_DATA_HOME
+          - /bin/cp -rf /app/data/dunedynasty $XDG_DATA_HOME
           - /app/bin/dunedynasty
