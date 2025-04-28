@@ -62,7 +62,7 @@ modules:
     buildsystem: cmake
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DDUNE_DATA_DIR=$XDG_DATA_HOME/dunedynasty
+      - -DDUNE_DATA_DIR=~/.local/share/dunedynasty/data
     sources:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
