@@ -12,6 +12,8 @@ on:
 jobs:
   flatpak:
     name: "Create Flatpak"
+    permissions:
+      actions: write
     runs-on: ubuntu-latest
     container:
       image: bilelmoussaoui/flatpak-github-actions:freedesktop-21.08
