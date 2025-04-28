@@ -1,7 +1,7 @@
 [Desktop Entry]
-Version=1.0
+Version=VERSION
 Type=Application
-Comment=A dune 2 Remake using the reverse engineered code
+Comment=A remaster / enhancement of the classic real-time strategy game Dune II by Westwood Studios
 Exec=dunedynasty
 Icon=io.github.gameflorist.dunedynasty
 Name=Dune Dynasty
