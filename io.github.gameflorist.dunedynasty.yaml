@@ -59,7 +59,7 @@ modules:
     buildsystem: cmake
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DDUNE_DATA_DIR=/app/data/dunedynasty
+      - -DDUNE_DATA_DIR=~/.local/share/dunedynasty
     sources:
     - type: git
       url: https://github.com/gameflorist/dunedynasty.git
@@ -72,7 +72,7 @@ modules:
       - type: script
         dest-filename: dunedynasty-launcher.sh
         commands:
-          - mkdir -p "~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty"
+          - mkdir -p ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty
           - /bin/cp -rf /app/data/dunedynasty/campaign ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/campaign
           - /bin/cp -rf /app/data/dunedynasty/data ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/data
           - /bin/cp -rf /app/data/dunedynasty/gfx ~/.var/app/io.github.gameflorist.dunedynasty/config/dunedynasty/gfx
