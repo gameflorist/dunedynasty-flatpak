@@ -71,11 +71,8 @@ modules:
 
   - name: dunedynasty-launcher
     buildsystem: simple
-    build-commands:
-      - install -Dm755 dunedynasty-launcher.sh /app/bin/dunedynasty-launcher
     sources:
-      - type: script
-        dest-filename: dunedynasty-launcher.sh
-        commands:
-          - /bin/cp -rf /app/share/dunedynasty $XDG_DATA_HOME
-          - /app/bin/dunedynasty
+      - type: file
+        path: dunedynasty-launcher
+    post-install:
+      - install -D -m 644 -t $FLATPAK_DEST/bin/ dunedynasty-launcher
