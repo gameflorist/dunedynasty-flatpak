@@ -76,4 +76,4 @@ modules:
       - type: file
         path: dunedynasty-launcher
     post-install:
-      - install -D -m 644 -t $FLATPAK_DEST/bin/ dunedynasty-launcher
+      - install -D -m 755 -t $FLATPAK_DEST/bin/ dunedynasty-launcher
