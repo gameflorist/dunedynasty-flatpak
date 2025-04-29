@@ -71,6 +71,7 @@ modules:
 
   - name: dunedynasty-launcher
     buildsystem: simple
+    build-commands: []
     sources:
       - type: file
         path: dunedynasty-launcher
