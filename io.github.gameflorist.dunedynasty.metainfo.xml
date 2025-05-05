@@ -55,8 +55,20 @@
   </content_rating>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/gameflorist/dunedynasty/refs/tags/v1.6.3/docs/screenshots.jpg</image>
-      <caption>Screenshots from Dune Dynasty</caption>
+      <image>https://raw.githubusercontent.com/gameflorist/dunedynasty/refs/heads/v164/docs/screenshot-1.jpg</image>
+      <caption>Dune II with scrollable sidebar</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/gameflorist/dunedynasty/refs/heads/v164/docs/screenshot-2.jpg</image>
+      <caption>Selection of multiple units</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/gameflorist/dunedynasty/refs/heads/v164/docs/screenshot-3.jpg</image>
+      <caption>Multiplayer lobby for up to 6 players/AI and teams</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/gameflorist/dunedynasty/refs/heads/v164/docs/screenshot-4.jpg</image>
+      <caption>Jukebox for songs and support for external music packs</caption>
     </screenshot>
   </screenshots>
   <releases>
