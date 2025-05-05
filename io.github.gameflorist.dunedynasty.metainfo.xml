@@ -60,7 +60,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="v1.6.4" date="2024-05-12">
+    <release version="v1.6.4beta" date="2025-05-05">
       <url type="details">https://github.com/gameflorist/dunedynasty/releases/tag/v1.6.4</url>
       <description>
         <p>Initial Flatpak release</p>
