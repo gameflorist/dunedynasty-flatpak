@@ -61,6 +61,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
+        tag: v1.6.3
     post-install:
       - mkdir -p $FLATPAK_DEST/share/dunedynasty
       - cp -rf ./dist/campaign $FLATPAK_DEST/share/dunedynasty
