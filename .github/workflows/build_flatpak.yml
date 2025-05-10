@@ -48,7 +48,7 @@ jobs:
             })
 
             res.data.artifacts
-                .filter(({ name }) => name === '${{ github.ref_name }}-${{ matrix.platform }}-flatpak')
+                .filter(({ name }) => name === 'dune-dynasty-${{ matrix.platform }}-flatpak')
                 .forEach(({ id }) => {
                   github.rest.actions.deleteArtifact({
                       owner: context.repo.owner,
