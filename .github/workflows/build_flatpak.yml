@@ -13,11 +13,11 @@ jobs:
       actions: write
     strategy:
       matrix:
-        platform: [amd64, arm64]
+        platform: [amd64, aarch64]
         include:
         - platform: amd64
           runner: ubuntu-latest
-        - platform: arm64
+        - platform: aarch64
           runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
     container:
@@ -35,6 +35,7 @@ jobs:
           bundle: DuneDynasty.flatpak
           manifest-path: io.github.gameflorist.dunedynasty.yaml
           cache-key: flatpak-builder-${{ matrix.platform }}-${{ github.sha }}
+          arch: ${{ matrix.platform }}
           upload-artifact: false
 
       - name: Delete Old Artifacts
