@@ -2,15 +2,28 @@ name: Build Flatpak
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - feat/matrix-build
 
 jobs:
   flatpak:
     name: "Create Flatpak"
     permissions:
       actions: write
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [amd64, arm64]
+        include:
+        - platform: amd64
+          arch: x86_64
+          runner: ubuntu-latest
+        - platform: arm64
+          arch: aarch64
+          runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
     container:
-      image: bilelmoussaoui/flatpak-github-actions:freedesktop-21.08
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
       options: --privileged
     steps:
       - name: Checkout Repo
@@ -23,7 +36,8 @@ jobs:
         with:
           bundle: DuneDynasty.flatpak
           manifest-path: io.github.gameflorist.dunedynasty.yaml
-          cache-key: flatpak-builder-${{ github.sha }}
+          cache-key: flatpak-builder-${{ matrix.platform }}-${{ github.sha }}
+          arch: ${{ matrix.arch }}
           upload-artifact: false
 
       - name: Delete Old Artifacts
@@ -37,7 +51,7 @@ jobs:
             })
 
             res.data.artifacts
-                .filter(({ name }) => name === '${{ github.ref_name }}-flatpak')
+                .filter(({ name }) => name === 'dune-dynasty-${{ matrix.platform }}-flatpak')
                 .forEach(({ id }) => {
                   github.rest.actions.deleteArtifact({
                       owner: context.repo.owner,
@@ -49,5 +63,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.ref_name }}-flatpak
+          name: dune-dynasty-${{ matrix.platform }}-flatpak
           path: DuneDynasty.flatpak
