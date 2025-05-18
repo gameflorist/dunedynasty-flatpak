@@ -19,21 +19,6 @@ cleanup:
   - "*.la"
   - "*.a"
 modules:
-  - name: dunedynasty-appdata
-    buildsystem: simple
-    build-commands: []
-    sources:
-      - type: file
-        path: io.github.gameflorist.dunedynasty.png
-      - type: file
-        path: io.github.gameflorist.dunedynasty.metainfo.xml
-      - type: file
-        path: io.github.gameflorist.dunedynasty.desktop
-    post-install:
-      - install -D -m 644 -t $FLATPAK_DEST/share/icons/hicolor/512x512/apps/ io.github.gameflorist.dunedynasty.png
-      - install -D -m 644 -t $FLATPAK_DEST/share/metainfo/ io.github.gameflorist.dunedynasty.metainfo.xml
-      - desktop-file-install -m 644 --dir=$FLATPAK_DEST/share/applications/ io.github.gameflorist.dunedynasty.desktop
-
   - name: allegro5
     buildsystem: cmake-ninja
     builddir: true
@@ -63,12 +48,22 @@ modules:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
         branch: v164
-
-  - name: dunedynasty-launcher
-    buildsystem: simple
-    build-commands: []
-    sources:
       - type: file
         path: dunedynasty-launcher
+      - type: file
+        dest-filename: io.github.gameflorist.dunedynasty.png
+        url: https://github.com/gameflorist/dunedynasty-flatpak/blob/main/io.github.gameflorist.dunedynasty.png
+        sha256: 211675fb9001102340e34121001b82897b1eda33bd8944e572a230f9b0e8a9d3
+      - type: file
+        dest-filename: io.github.gameflorist.dunedynasty.metainfo.xml
+        url: https://github.com/gameflorist/dunedynasty-flatpak/blob/main/io.github.gameflorist.dunedynasty.metainfo.xml
+        sha256: a19d845113a2312bde555d87d8b780587d0919117553ca341398af9267f283a4
+      - type: file
+        dest-filename: io.github.gameflorist.dunedynasty.desktop
+        url: https://github.com/gameflorist/dunedynasty-flatpak/blob/main/io.github.gameflorist.dunedynasty.desktop
+        sha256: 81f249b29c9f662f39f9e7eb840e025f1ee99397526fc10f40d9c21c49a6bb8c
     post-install:
+      - install -D -m 644 -t $FLATPAK_DEST/share/icons/hicolor/512x512/apps/ io.github.gameflorist.dunedynasty.png
+      - install -D -m 644 -t $FLATPAK_DEST/share/metainfo/ io.github.gameflorist.dunedynasty.metainfo.xml
+      - desktop-file-install -m 644 --dir=$FLATPAK_DEST/share/applications/ io.github.gameflorist.dunedynasty.desktop
       - install -D -m 755 -t $FLATPAK_DEST/bin/ dunedynasty-launcher
