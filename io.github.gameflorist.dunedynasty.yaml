@@ -58,16 +58,11 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DINSTALL_DATA=ON
     sources:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
         branch: v164
-    post-install:
-      - mkdir -p $FLATPAK_DEST/share/dunedynasty
-      - cp -rf ./dist/campaign $FLATPAK_DEST/share/dunedynasty
-      - cp -rf ./dist/data $FLATPAK_DEST/share/dunedynasty
-      - cp -rf ./dist/gfx $FLATPAK_DEST/share/dunedynasty
-      - cp -rf ./dist/music $FLATPAK_DEST/share/dunedynasty
 
   - name: dunedynasty-launcher
     buildsystem: simple
