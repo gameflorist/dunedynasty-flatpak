@@ -46,4 +46,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/gameflorist/dunedynasty.git
-        branch: v164
+        tag: v1.6.4
